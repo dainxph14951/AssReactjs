@@ -2,9 +2,12 @@ import React from 'react'
 import  Nav  from './Nav'
 import Search from './Search'
 
+import { Layout } from 'antd';
+
+const { Header } = Layout;
 type Props = {}
 
-const Header = (props: Props) => {
+const Headers = (props: Props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <div className="container-fluid ">
@@ -18,4 +21,4 @@ const Header = (props: Props) => {
   )
 }
 
-export default Header
+export default Headers
