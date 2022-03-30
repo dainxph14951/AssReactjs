@@ -15,19 +15,15 @@ const AdminLayount = (props: Props) => {
   
   return (
     <div>
-          <Layout>
-        <HeaderAdmin />
-        <Layout>
-          <Slider />
-          <Layout>
-            <Contents />
-            <FooterAdmin />
-          </Layout>
+      <header>
+        <HeaderAdmin/>
+      </header>
           <main>
             <Outlet/>
           </main>
-        </Layout>
-      </Layout>
+        <footer>
+        <FooterAdmin/>
+        </footer>
     </div>
   )
 }

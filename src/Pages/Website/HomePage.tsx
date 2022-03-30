@@ -4,140 +4,82 @@ type Props = {}
 
 const HomePage = (props: Props) => {
   return (
-    <div className='container-fuild'>
-      {/* Trending Now */}
-      <div className="row p-5">
-        <h2 className='text-center p-2'>New Products</h2>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
+    <div>
+      <div className="bg-white">
+        <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Customers also purchased</h2>
 
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-            {/* Danh mục */}
-            <div className="row-root-2ni departments-wrapper mt-5">
-        <div className="row-contained-LS3">
-          <div className="wrapper">
-            <div className="row-contained-LS3 departments desktop">
-              <div style={{ padding: '0px 50px 17px', display: 'flex', justifyContent: 'flex-start', flexDirection: 'column' }}>
+          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div className="group relative">
+              <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <img src="https://conversestore.vn/wp-content/uploads/2021/08/1-13-1024x1024.jpg" className="w-full h-full object-center object-cover lg:w-full lg:h-full" />
+              </div>
+              <div className="mt-4 flex justify-between">
                 <div>
-                  <style dangerouslySetInnerHTML={{ __html: "\n        main .departments-wrapper:after {\n          max - width: 1440px;\n        position: relative;\n        align-self: center;\n    }\n\n        main .departments-wrapper .departments-circle-wrapper:hover img {\n          filter: brightness(80%) contrast(130%);\n    }\n        .departments-wrapper .departments-circle-wrapper img {\n          transition: filter 200ms ease-out;\n\n        width: 100%;\n        height: auto;\n        max-width: 150px;\n        max-height: 150px;\n    }\n        .departments-wrapper .departments-circle-wrapper a {\n          display: block;\n        padding-bottom: 20px;\n    }\n\n        main .departments-wrapper .departments-circle-wrapper:hover button.btn:after {\n          width: 100%;\n    }\n        main .departments-wrapper .departments-circle-wrapper button.btn:after {\n          -ms - transition: none;\n        -moz-transition: none;\n        -webkit-transition: none;\n        content: \"\";\n        position: absolute;\n        height: 2px;\n        width: 0;\n        bottom: -6px;\n        left: 0;\n        background: #4a4a4a;\n    }\n        main .departments-wrapper .departments-circle-wrapper button.btn {\n          color: #4a4a4a;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif;\n        font-weight: 500;\n        font-size: 15px;\n    }\n\n        @media screen and (min-width: 1440px) {\n          main.departments - wrapper.departments.desktop {\n          width: 1300px;\n        }\n    }\n\n        @media screen and (min-width: 768px) and (max-width: 1280px) {\n        .departments - wrapper.departments.desktop > div {\n          margin: 0 auto !important;\n        padding-right: 20px !important;\n        padding-left: 20px !important;\n        }\n    }\n      " }} />
+                  <h3 className="text-sm text-gray-700">
+                    <a href="#">
+                      <span aria-hidden="true" className="absolute inset-0"></span>
+                      Chuck 70s High AllWhite
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">white</p>
                 </div>
-                <div className="columnGroup-root-1P5" style={{ display: 'flex' }}>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Baume Mercier</button>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Breitling</button>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Cartier</button>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Citizen</button>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Hamilton</button>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="column-root-1Gk pagebuilder-column departments-circle-wrapper" style={{ textAlign: 'center', width: '16.6667%' }}>
-                    <div style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0, margin: 0, padding: 0 }}>
-                      <a href="/watches-for-men.html">
-                        <img loading="lazy" alt="watches for men" src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" title="watches for men" style={{ borderWidth: 1, borderStyle: 'none', borderImage: 'initial', borderRadius: 0 }} width={150} height={150} />
-                      </a></div>
-                    <div className="buttons-root-3W5 buttons-inline-1H1" style={{ justifyContent: 'flex-start' }}><div>
-                      <button type="button" className="btn bg-secondary text-white" style={{ textAlign: 'center', justifyContent: 'center' }}>Hublot</button>
-                    </div>
-                    </div>
-                  </div>
-
-
-                </div>
-
+                <p className="text-sm font-medium text-gray-900">950.000₫</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-  <hr />
-
-      <div className="row text-center px-3 py-3">
-      <h2 className='text-center p-2'>News</h2>
-        <div className="col-lg-4">
-          <a href=""><img className="bd-placeholder-img rounded-circle" width={140} height={140} src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" alt="" /></a>
-          <br />
-          <br /><p className=''>JOMASHOP PROMISE</p>
-          <h5 className='p-2'>WARRANTY INCLUDED</h5>
-          <p><a className="btn  btn-secondary" href="#">View details »</a></p>
-        </div>{/* /.col-lg-4 */}
-        <div className="col-lg-4">
-          <a href=""><img className="bd-placeholder-img rounded-circle" width={140} height={140} src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" alt="" /></a>
-          <br />
-          <br /><p className=''>ASSURANCE OF BUYING</p>
-          <h5 className=''>AUTHENTICITY GUARANTEED</h5>
-          <p><a className="btn btn-secondary" href="#">View details »</a></p>
-        </div>{/* /.col-lg-4 */}
-        <div className="col-lg-4">
-          <a href=""><img className="bd-placeholder-img rounded-circle" width={140} height={140} src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_590,c_limit/e10fa75a-d5dc-42d1-b3d9-d9348f37bd8c/nike-just-do-it.png" alt="" /></a>
-          <br />
-          <br /><p className=' '>EXPERT GUIDANCE</p>
-          <h5 className=''>FAST & EASY RETURNS</h5>
-          <p><a className="btn btn-secondary" href="#">View details »</a></p>
-        </div>{/* /.col-lg-4 */}
+      <div className="bg-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
+          <h2 className="text-2xl font-extrabold text-gray-900">Promotional information</h2>
+    
+          <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
+            <div className="group relative">
+              <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://conversestore.vn/wp-content/uploads/2021/08/z2423505633937_7a6af78d2f2ea37a1f19a943d0c0bd04-1905x2106.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." className="w-full h-full object-center object-cover"/>
+              </div>
+              <h3 className="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span className="absolute inset-0"></span>
+                  20% off men's shoes
+                </a>
+              </h3>
+              <p className="text-base font-semibold text-gray-900">Promotion is applied to all men's footwear products... </p>
+            </div>
+    
+            <div className="group relative">
+              <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://conversestore.vn/wp-content/uploads/2021/08/z2663589833856_f5d1ef64e15c9d76eb3f136322074727-1.jpg" alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant." className="w-full h-full object-center object-cover"/>
+              </div>
+              <h3 className="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span className="absolute inset-0"></span>
+                  Buy 5 get 1 free
+                </a>
+              </h3>
+              <p className="text-base font-semibold text-gray-900">When customers buy online, they will be offered incentives with 5 products poured on...</p>
+            </div>
+    
+            <div className="group relative">
+              <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://conversestore.vn/wp-content/uploads/2021/08/z2644602791267_94721f2a732dc8de9f7b280946643c99-1905x2106.jpg" alt="Collection of four insulated travel bottles on wooden shelf." className="w-full h-full object-center object-cover"/>
+              </div>
+              <h3 className="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span className="absolute inset-0"></span>
+                  Free ship
+                </a>
+              </h3>
+              <p className="text-base font-semibold text-gray-900">Free shipping with products from 1,000,000, customers will be free...</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-
-
-
-
     </div>
+    </div>
+    
   )
 }
 

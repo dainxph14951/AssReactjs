@@ -13,7 +13,6 @@ const Headers = (props: Props) => {
     <div className="container-fluid ">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <Nav />
-        <Search />
         
         </div>
     </div>
