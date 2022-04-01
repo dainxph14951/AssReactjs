@@ -1,30 +1,29 @@
 import React from 'react'
-import { Layout, Typography } from 'antd';
-
 import HeaderAdmin from '../../Components/Admin/HeaderAdmin';
 import Slider from '../../Components/Admin/Slider';
 import Contents from '../../Components/Admin/Content';
 import FooterAdmin from '../../Components/Admin/FooterAdmin';
 
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
-const { Title } = Typography;
-const { Header, Footer, Sider, Content } = Layout;
+import { Outlet } from 'react-router-dom'
+import SliderAdmin from '../../Components/Admin/Slider';
+
 type Props = {}
 
 const AdminLayount = (props: Props) => {
-  
+
   return (
     <div>
-      <header>
-        <HeaderAdmin/>
-      </header>
-          <main>
-            <Outlet/>
+      <div className="h-screen flex flex-row flex-wrap">
+        <SliderAdmin />
+        <div className="bg-gray-100 flex-1">
+          <HeaderAdmin />
+
+          <main className='p-[10px]'>
+            <Outlet />
           </main>
-        <footer>
-        <FooterAdmin/>
-        </footer>
-    </div>
+        </div>
+      </div>
+    </div >
   )
 }
 

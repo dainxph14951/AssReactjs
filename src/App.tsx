@@ -11,22 +11,34 @@ import Products from './Pages/Website/Products';
 import ProductDetail from './Pages/Website/ProductDetail';
 import Add from './Pages/Admin/Products/Add';
 import { ProductType } from './types/products';
-import {list} from '../src/api/products'
+import {add, list, remove} from '../src/api/products'
 import Signin from './Pages/Website/Signin';
 import Signup from './Pages/Website/Signup';
+import ListCategory from './Pages/Admin/Category/ListCategory';
+import Dashboard from './Components/Admin/Dashboard';
 
 
 function App() {
   const [count, setCount] = useState(0)
-  const [product, setProducts] = useState<ProductType[]>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {
     const getProducts = async () => {
       const {data} = await list();
-      console.log(data);
+      setProducts(data);
     }
     getProducts();
   },[])
+  const removeItem = (id: number) => {
+    // console.log('app.js', id);
+    confirm('bạn có muốn xóa không ?');
+    remove(id);
+    setProducts(products.filter(item => item._id !== id));
+  }
+  const onHanlderAdd = (data) => {
+     add(data);
+     setProducts([...products, data])
+  }
   return (
     <div className="App">
 
@@ -38,11 +50,11 @@ function App() {
             <Route path='productdetail' element={<ProductDetail/>}/>
         </Route>
         <Route path='admin' element={<AdminLayount />}>
-          <Route index element={<Navigate to='dashboard' />} />
-          <Route path="dashboard" element={<h1></h1>} />
+          <Route index element={<Dashboard />} />
+          <Route path='category' element={<ListCategory/>} />
             <Route path='products' >
-              <Route index element={<List />} />
-              <Route path='add' element={<Add/>}/>
+              <Route index element={<List  products={products} onAdd={removeItem}/>} /> 
+              <Route path='add' element={<Add  onAdd={onHanlderAdd}  />}/>
             </Route>
         </Route>
         <Route path='signin' element={<Signin/>} />

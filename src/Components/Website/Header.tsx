@@ -1,10 +1,6 @@
-import React from 'react'
+
 import  Nav  from './Nav'
-import Search from './Search'
 
-import { Layout } from 'antd';
-
-const { Header } = Layout;
 type Props = {}
 
 const Headers = (props: Props) => {

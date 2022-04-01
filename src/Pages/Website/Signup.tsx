@@ -26,16 +26,19 @@ const Signup = (props: Props) => {
                 <label  className="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input type="number" name="phone" id="phone" autoComplete="phone" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
               </div>
-                
-              <div className="col-span-6 sm:col-span-4">
-                <label  className="block text-sm font-medium text-gray-700">Email address</label>
-                <input type="email" name="email-address" id="email-address" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
-              </div>
-
               <div className="col-span-6 sm:col-span-3">
                 <label  className="block text-sm font-medium text-gray-700">Address</label>
                 <input type="text" name="address" id="address" autoComplete="address" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
               </div>
+              <div className="col-span-6 sm:col-span-4">
+                <label  className="block text-sm font-medium text-gray-700">Email address</label>
+                <input type="email" name="email-address" id="email-address" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+              </div>
+              <div className="col-span-6 sm:col-span-4">
+                <label  className="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" id="password" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+              </div>
+
             </div>
           </div>
           <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
