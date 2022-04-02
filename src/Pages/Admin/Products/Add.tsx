@@ -18,7 +18,7 @@ const Add = (props: AddProps) => {
     const navigate = useNavigate();
     const onSubmit: SubmitHandler<FormInputs> = data => {
         props.onAdd(data);
-        navigate('/admin/products')
+        navigate('/admin/product')
     }
     return (
         <div>

@@ -1,8 +1,5 @@
 import React from 'react'
 import HeaderAdmin from '../../Components/Admin/HeaderAdmin';
-import Slider from '../../Components/Admin/Slider';
-import Contents from '../../Components/Admin/Content';
-import FooterAdmin from '../../Components/Admin/FooterAdmin';
 
 import { Outlet } from 'react-router-dom'
 import SliderAdmin from '../../Components/Admin/Slider';
