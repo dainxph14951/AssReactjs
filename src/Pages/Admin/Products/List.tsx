@@ -15,9 +15,9 @@ const List = ({ products, onAdd }: ListProps) => {
             <div className="flex-1 min-w-0">
             </div>
             <div className="mt-9 mx-auto flex lg:mt-0 lg:ml-4">
-              <a href="/admin/products/add" className="sm:ml-3">
+              <a href="/admin/products/add" className="sm:ml-3 no-underline">
                 <button type="button"
-                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">
                   Thêm mới Sản Phẩm
                 </button>
               </a>

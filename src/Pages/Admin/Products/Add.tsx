@@ -1,33 +1,42 @@
 import React from 'react'
-import {useForm, SubmitHandler} from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { ProductType } from '../../../types/products';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 type AddProps = {
-onAdd: (product: ProductType) => void
+    onAdd: (product: ProductType) => void
+}
+type FormInputs = {
+    _id?: number,
+    name: string,
+    img: string,
+    price: number,
+    detail: string
 }
 
 const Add = (props: AddProps) => {
-    const {register, handleSubmit, formState} = useForm<ProductType>();
+    const { register, handleSubmit, formState } = useForm<FormInputs>();
     const navigate = useNavigate();
-    const onSubmit: SubmitHandler<ProductType> = data => {
+    const onSubmit: SubmitHandler<FormInputs> = data => {
         props.onAdd(data);
         navigate('/admin/products')
     }
-  return (
-    <div>       
+    return (
+        <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <span>Name</span>
-                <input type="text" {...register('name', {required: true})} /><hr/>
+                <input type="text" {...register('name', { required: true })} /><hr />
                 <span>Img</span>
-                <input type="text" {...register('img', {required: true})} /><hr/>
+                <input type="text" {...register('img', { required: true })} /><hr />
                 <span>Price</span>
-                <input type="number" {...register('price', {required: true})} /><hr/>
+                <input type="number" {...register('price', { required: true })} /><hr />
                 <span>Detail</span>
-                <input type="text" {...register('detail', {required: true})} /><hr/>
-                <button>Add</button>
+                <input type="text" {...register('detail', { required: true })} /><hr />
+                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    Add
+                </button>
 
             </form>
-         {/* <div className="min-h-full">
+            {/* <div className="min-h-full">
     <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-xl mx-auto font-bold text-gray-900">
@@ -78,8 +87,8 @@ const Add = (props: AddProps) => {
         </div>
     </main>
 </div> */}
-</div>
-  )
+        </div>
+    )
 }
 
 export default Add
