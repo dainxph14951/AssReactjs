@@ -7,6 +7,7 @@ type AddProps = {
 }
 type FormInputs = {
     _id?: number,
+    category: string,
     name: string,
     img: string,
     price: number,
@@ -18,11 +19,13 @@ const Add = (props: AddProps) => {
     const navigate = useNavigate();
     const onSubmit: SubmitHandler<FormInputs> = data => {
         props.onAdd(data);
-        navigate('/admin/product')
+        navigate('/admin/products')
     }
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
+                 <span>category</span>
+                <input type="text" {...register('category', { required: true })} /><hr />
                 <span>Name</span>
                 <input type="text" {...register('name', { required: true })} /><hr />
                 <span>Img</span>

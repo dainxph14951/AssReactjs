@@ -11,11 +11,12 @@ import Products from './Pages/Website/Products';
 import ProductDetail from './Pages/Website/ProductDetail';
 import Add from './Pages/Admin/Products/Add';
 import { ProductType } from './types/products';
-import {add, list, remove} from '../src/api/products'
+import {create, list, remove, update} from '../src/api/products'
 import Signin from './Pages/Website/Signin';
 import Signup from './Pages/Website/Signup';
 import ListCategory from './Pages/Admin/Category/ListCategory';
 import Dashboard from './Components/Admin/Dashboard';
+import Edit from './Pages/Admin/Products/Edit';
 
 
 function App() {
@@ -36,8 +37,13 @@ function App() {
     setProducts(products.filter(item => item._id !== id));
   }
   const onHanlderAdd = (data) => {
-     add(data);
+    create(data);
      setProducts([...products, data])
+  }
+  const onHandleUpdate = async (product : ProductType) => {
+        const {data} = await update(product);
+        //reRender
+        setProducts(products.map(item => item._id === data.id ? data: item));
   }
   return (
     <div className="App">
@@ -55,6 +61,7 @@ function App() {
             <Route path='products' >
               <Route index element={<List  products={products} onAdd={removeItem}/>} /> 
               <Route path='add' element={<Add  onAdd={onHanlderAdd}  />}/>
+              <Route path=':id/edit' element={<Edit onUpdate={onHandleUpdate}/>} />
             </Route>
         </Route>
         <Route path='signin' element={<Signin/>} />
