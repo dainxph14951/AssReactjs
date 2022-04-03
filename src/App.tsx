@@ -36,11 +36,13 @@ function App() {
     remove(id);
     setProducts(products.filter(item => item._id !== id));
   }
-  const onHanlderAdd = (data) => {
+  const onHanlderAdd = (data: any) => {
     create(data);
      setProducts([...products, data])
+     alert('Đăng ký Thành công')
   }
   const onHandleUpdate = async (product : ProductType) => {
+    console.log(product);
         const {data} = await update(product);
         //reRender
         setProducts(products.map(item => item._id === data.id ? data: item));

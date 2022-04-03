@@ -1,4 +1,4 @@
 export  type SigninType = {
     email: string,
-    password: number
+    password: string
 }

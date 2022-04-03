@@ -7,7 +7,6 @@ type EditProps = {
   onUpdate: (product: ProductType) => void
 }
 type FormInputs = {
-    _id?: number,
     category: string,
     name: string,
     img: string,
@@ -18,16 +17,21 @@ type FormInputs = {
 const Edit = (props: EditProps) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm<FormInputs>();
     const navigate = useNavigate();
+    const { id } = useParams();
+    console.log(id);
+
     useEffect(() => {
-      const getProducts = async () => {
-        const {data} = await read(id);
-        reset(id);
+      const getProduct = async () => {
+        const { data } = await read(id);
+        reset(data);
+        console.log(data);
       }
-      getProducts();
+      getProduct();
     }, []);
     const onSubmit: SubmitHandler<FormInputs> = data => {
         props.onUpdate(data);
-        // navigate('/admin/products')
+        console.log(data);
+        navigate('/admin/products')
     }
     return (
         <div>
