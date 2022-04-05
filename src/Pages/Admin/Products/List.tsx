@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { ProductType } from '../../../types/products'
 
 type ListProps = {
@@ -16,12 +16,12 @@ const List = ({ products, onAdd}: ListProps) => {
             <div className="flex-1 min-w-0">
             </div>
             <div className="mt-9 mx-auto flex lg:mt-0 lg:ml-4">
-              <a href="/admin/products/add" className="sm:ml-3 no-underline">
+              <NavLink to="add" className="sm:ml-3 no-underline">
                 <button type="button"
                   className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">
-                  Thêm mới Sản Phẩm
+                 Add Products
                 </button>
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -45,16 +45,16 @@ const List = ({ products, onAdd}: ListProps) => {
                             STT
                           </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Danh Mục
+                          Category
                          </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Ảnh Sản Phẩm
+                          Image
                          </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Tên Sản Phẩm
+                            Name Products
                           </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Giá
+                            Price
                           </th>
                           {/* <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Chi Tiết Sản Phẩm
@@ -63,7 +63,7 @@ const List = ({ products, onAdd}: ListProps) => {
                             Detail
                           </th>
                           <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Xóa
+                            Remove
                           </th>
                         </tr>
                       </thead>
@@ -100,11 +100,11 @@ const List = ({ products, onAdd}: ListProps) => {
                             </td>
                             <td>
                               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link to={`/admin/products/${item._id}/edit`} className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">sửa</Link>
+                                <Link to={`/admin/products/${item._id}/edit`} className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">Update</Link>
                               </td>
 
                               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <button className="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => onAdd(item._id)}>Xóa</button>
+                                <button className="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => onAdd(item._id)}>remove</button>
                               </td>
                             </td>
                           </tr>

@@ -90,9 +90,9 @@ const Footer = (props: Props) => {
           </ul>
         </div>
         <div className="mx-auto pl-20">
-            <h5>Bản Đồ</h5>
+            <h5>Map</h5>
             <a href=""><iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.740752607119!2d105.74730811421315!3d21.04305669266754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454ed00bc5f55%3A0xa44b17210595ac74!2zODAgUGjDuiBLaeG7gXUsIFBow7pjIERp4buFbiwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1630120201046!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193365.0485932369!2d-112.06057173547813!3d40.77678325668278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87523d9488d131ed%3A0x5b53b7a0484d31ca!2sSalt%20Lake%20City%2C%20UT%2C%20USA!5e0!3m2!1sen!2s!4v1649144502963!5m2!1sen!2s"
                     width="400" height="250" style={{border: "0"}}  loading="lazy"></iframe></a>
         </div>
       </div>

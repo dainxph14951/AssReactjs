@@ -58,6 +58,9 @@ const Nav = (props: Props) => {
             <li className='nav-item'>
               <NavLink className="nav-link text-secondary" to='/news'>New</NavLink>
             </li>
+            <li className='nav-item'>
+              <NavLink className="nav-link text-secondary" to='/contact'>Contact</NavLink>
+            </li>
 
           </ul>
         </div>

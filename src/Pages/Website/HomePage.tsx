@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -17,10 +18,11 @@ const HomePage = (props: Props) => {
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href="#">
+                    
+                    <NavLink to="productdetail">
                       <span aria-hidden="true" className="absolute inset-0"></span>
                       Chuck 70s High AllWhite
-                    </a>
+                    </NavLink>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">white</p>
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -11,7 +12,7 @@ const ProductDetail = (props: Props) => {
       <ol role="list" className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
         <li>
           <div className="flex items-center">
-            <a href="#" className="mr-2 text-sm font-medium text-gray-900"> Men </a>
+            <a href="#" className="mr-2 text-sm font-medium text-gray-900"> Productdetail </a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-5 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -20,7 +21,7 @@ const ProductDetail = (props: Props) => {
 
         <li>
           <div className="flex items-center">
-            <a href="#" className="mr-2 text-sm font-medium text-gray-900"> Clothing </a>
+            <a href="#" className="mr-2 text-sm font-medium text-gray-900"> ConVerse </a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-5 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -28,30 +29,28 @@ const ProductDetail = (props: Props) => {
         </li>
 
         <li className="text-sm">
-          <a href="#" aria-current="page" className="font-medium text-gray-500 hover:text-gray-600"> Basic Tee 6-Pack </a>
+          <a href="#" aria-current="page" className="font-medium text-gray-500 hover:text-gray-600"> Chuck 70s High AllWhite</a>
         </li>
       </ol>
     </nav>
     <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
       <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" alt="Two each of gray, white, and black shirts laying flat." className="w-full h-full object-center object-cover"/>
+        <img src="https://conversestore.vn/wp-content/uploads/2021/08/2-12-600x600.jpg" alt="Two each of gray, white, and black shirts laying flat." className="w-full h-full object-center object-cover"/>
       </div>
       <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
         <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-          <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg" alt="Model wearing plain black basic tee." className="w-full h-full object-center object-cover" />
+          <img src="https://conversestore.vn/wp-content/uploads/2021/08/2-12-600x600.jpg" alt="Model wearing plain black basic tee." className="w-full h-full object-center object-cover" />
         </div>
         <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-         <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg" alt="Model wearing plain gray basic tee." className="w-full h-full object-center object-cover" />
+         <img src="https://conversestore.vn/wp-content/uploads/2021/08/1-13-1024x1024.jpg" alt="Model wearing plain gray basic tee." className="w-full h-full object-center object-cover" />
         </div>
       </div>
-      <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt="Model wearing plain white basic tee." className="w-full h-full object-center object-cover" />
-      </div>
+
     </div>
 
     <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
       <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-        <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Chuck 70s High AllWhite</h1>
       </div>
 
       <div className="mt-4 lg:mt-0 lg:row-span-3">
@@ -134,7 +133,7 @@ const ProductDetail = (props: Props) => {
 
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-gray-50 text-gray-200 cursor-not-allowed">
                  <input type="radio" name="size-choice" value="XXS" disabled className="sr-only" aria-labelledby="size-choice-0-label" />
-                  <p id="size-choice-0-label">XXS</p>
+                  <p id="size-choice-0-label">26</p>
 
                   <div aria-hidden="true" className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none">
                     <svg className="absolute inset-0 w-full h-full text-gray-200 stroke-2" viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
@@ -146,7 +145,7 @@ const ProductDetail = (props: Props) => {
           
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="XS" className="sr-only" aria-labelledby="size-choice-1-label"/>
-                  <p id="size-choice-1-label">XS</p>
+                  <p id="size-choice-1-label">27</p>
 
                
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
@@ -155,14 +154,14 @@ const ProductDetail = (props: Props) => {
           
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="S" className="sr-only" aria-labelledby="size-choice-2-label"/>
-                  <p id="size-choice-2-label">S</p>
+                  <p id="size-choice-2-label">28</p>
 
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                 </label>
 
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="M" className="sr-only" aria-labelledby="size-choice-3-label"/>
-                  <p id="size-choice-3-label">M</p>
+                  <p id="size-choice-3-label">29</p>
 
      
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
@@ -171,7 +170,7 @@ const ProductDetail = (props: Props) => {
             
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="L" className="sr-only" aria-labelledby="size-choice-4-label"/>
-                  <p id="size-choice-4-label">L</p>
+                  <p id="size-choice-4-label">30</p>
 
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                 </label>
@@ -179,14 +178,14 @@ const ProductDetail = (props: Props) => {
               
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="XL" className="sr-only" aria-labelledby="size-choice-5-label"/>
-                  <p id="size-choice-5-label">XL</p>
+                  <p id="size-choice-5-label">31</p>
 
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                 </label>
 
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="2XL" className="sr-only" aria-labelledby="size-choice-6-label"/>
-                  <p id="size-choice-6-label">2XL</p>
+                  <p id="size-choice-6-label">32</p>
 
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                 </label>
@@ -194,15 +193,16 @@ const ProductDetail = (props: Props) => {
 
                 <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
                   <input type="radio" name="size-choice" value="3XL" className="sr-only" aria-labelledby="size-choice-7-label"/>
-                  <p id="size-choice-7-label">3XL</p>
+                  <p id="size-choice-7-label">33</p>
 
                   <div className="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                 </label>
               </div>
             </fieldset>
           </div>
-
-          <button type="submit" className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+          <NavLink to="cart" className={"no-underline"}>
+          <button type="submit" className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">Add to bag</button>
+          </NavLink>
         </form>
       </div>
 

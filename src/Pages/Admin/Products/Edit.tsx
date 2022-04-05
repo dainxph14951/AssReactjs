@@ -24,13 +24,12 @@ const Edit = (props: EditProps) => {
       const getProduct = async () => {
         const { data } = await read(id);
         reset(data);
-        console.log(data);
       }
       getProduct();
     }, []);
     const onSubmit: SubmitHandler<FormInputs> = data => {
+        alert('sửa thành công');
         props.onUpdate(data);
-        console.log(data);
         navigate('/admin/products')
     }
     return (
