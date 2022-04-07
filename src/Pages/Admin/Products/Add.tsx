@@ -4,11 +4,9 @@ import { ProductType } from '../../../types/products';
 import { Link, useNavigate } from 'react-router-dom'
 import { CategoryType } from '../../../types/category'
 import { listCate } from '../../../../src/api/category';
-import { update } from '../../../api/products';
-import Axios from 'axios';
 
 type AddProps = {
-    onAdd: (product: ProductType) => void
+    onAdd: (product : ProductType) => void
 }
 type FormInputs = {
     _id?: number,
@@ -16,76 +14,50 @@ type FormInputs = {
     name: string,
     img: string,
     price: number,
-    detail: string
+    quantity: number,
+    desc: string
 }
 
 const Add =  (props: AddProps) => {
     const { register, handleSubmit, formState } = useForm<FormInputs>();
+    const [categorys, setCategorys] = useState<CategoryType[]>([]);
     const navigate = useNavigate();
-    const [categorys, setCategorys] = useState<CategoryType[]>([])
-    const [products, setProducts] = useState<ProductType[]>([]);
 
-    const [imageSelected, setImageSelected] = useState("");
-        let imgLink = "";
-    const uploadImage = async () => {
-        const formData = new FormData()
-        formData.append("file",imageSelected )
-        formData.append("upload_preset", "k9yoyn7r" )
-
-        const { data } = await Axios.post("https://api.cloudinary.com/v1_1/dev7lem1d/image/upload", formData, {
-            headers: {
-                "Content-Type": "application/form-data",
-            },
-        });
-        imgLink = data.url;
-        console.log(imgLink);
-    };
-
-
-    
-    useEffect(() => {
-        const getCategory = async () => {
-            const { data } = await listCate();
-            setCategorys(data);
-        }
-        getCategory();
-    }, [])
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        props.onAdd(data);
-        // navigate('/admin/products')
+        props.onAdd(data); 
+        navigate('/admin/products')
     }
+    useEffect(() => {
+        const getCategory = async () => {
+          const {data} = await listCate();
+          setCategorys(data);
+        }
+        getCategory();
+      },[])
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
-                <div className="  mb-[10px]">
-                    <label htmlFor="Category">Category</label>
-
-                    <select {...register('category', { required: true })}>
-                        <option>Categorys</option>
-                        {categorys && categorys.map((item) => {
-                            return <option >{item.name}</option>
-                        })}
-                    </select>
-
-                </div>
-                <div className="w-full  mb-[10px]">
-                                <input type="file" onChange={(e) => {
-                                   setImageSelected(e.target.files[0]);
-                                }} />
-                                
+            <div className="w-full  mb-[10px]">
+                            <label htmlFor="Category" >Category</label>
+                            <select {...register('category', { required: true })} >
+                                <option >Categorys</option>
+                                {categorys && categorys.map((item, index) => {
+                                    return <option key={index} value={item._id}>{item.name}</option>
+                                })}
+                            </select>
                         </div>
-                {/* <span>category</span>
-                <input type="text" {...register('category', { required: true })} /><hr /> */}
                 <span>Name</span>
                 <input type="text" {...register('name', { required: true })} /><hr />
                 <span>Img</span>
                 <input type="text" {...register('img', { required: true })} /><hr />
                 <span>Price</span>
                 <input type="number" {...register('price', { required: true })} /><hr />
+                <span>Quantity</span>
+                <input type="number" {...register('quantity', { required: true })} /><hr />
                 <span>Detail</span>
-                <input type="text" {...register('detail', { required: true })} /><hr />
-                <button onClick={uploadImage} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                <input type="text" {...register('desc', { required: true })} /><hr />
+                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                     Add
                 </button>
 

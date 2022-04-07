@@ -56,6 +56,7 @@ function App() {
         //reRender
         setProducts(products.map(item => item._id === data.id ? data: item));
   }
+  // Category
   useEffect(() => {
     const getCategory = async () => {
       const {data} = await listCate();
@@ -63,6 +64,7 @@ function App() {
     }
     getCategory();
   },[])
+  // delete category
   const removeItemCate = (id: any) => {
       confirm('Bạn có muốn xóa không ?')
       removeCate(id)
