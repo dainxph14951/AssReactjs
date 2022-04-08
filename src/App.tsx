@@ -3,24 +3,25 @@ import './App.css'
 
 import { Navigate, Route, Routes } from 'react-router-dom'
 import AdminLayount from './Pages/Layout/AdminLayount';
-import List from './Pages/Admin/Products/List';
+import ListProduct from './Pages/Admin/Products/ListProduct';
 import WebsiteLayount from './Pages/Layout/WebsiteLayount';
 import HomePage from './Pages/Website/HomePage';
 import News from './Pages/Website/News';
 import Products from './Pages/Website/Products';
 import ProductDetail from './Pages/Website/ProductDetail';
-import Add from './Pages/Admin/Products/Add';
+import AddProduct from './Pages/Admin/Products/AddProduct';
 import Signin from './Pages/Website/Signin';
 import Signup from './Pages/Website/Signup';
 import ListCategory from './Pages/Admin/Category/ListCategory';
 import Dashboard from './Components/Admin/Dashboard';
-import Edit from './Pages/Admin/Products/Edit';
+import EditProduct from './Pages/Admin/Products/EditProduct';
 import AddCategory from './Pages/Admin/Category/AddCategory';
 import EditCategory from './Pages/Admin/Category/EditCategory';
 import Cart from './Pages/Website/Cart';
 import Bill from './Pages/Website/Bill';
 import Ntfcation from './Pages/Website/Ntfcation';
 import Contact from './Pages/Website/Contact';
+
 
 function App() {
   return (
@@ -41,9 +42,9 @@ function App() {
           <Route index element={<Dashboard />} />
 
             <Route path='products' >
-              <Route index element={<List />} /> 
-              <Route path='add' element={<Add />}/>
-              <Route path=':id/edit' element={<Edit />} />
+              <Route index element={<ListProduct />} /> 
+              <Route path='add' element={<AddProduct />}/>
+              <Route path=':id/edit' element={<EditProduct />} />
             </Route>
            <Route path='category'>
               <Route index element={<ListCategory />} />
