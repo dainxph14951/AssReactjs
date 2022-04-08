@@ -7,14 +7,14 @@ export const listCate = () => {
     return instance.get(url); 
 }
 export const removeCate = (id: number) => {
-    const url = `category/${id}`;
+    const url = `categorys/${id}`;
     return instance.delete(url); 
 }
-export const add = (category: CategoryType ) => {
+export const addCate = (category: CategoryType ) => {
     const url = `categorys`;
     return instance.post(url, category); 
 }
-export const update = (category: CategoryType) => {
+export const updateCate = (category: CategoryType) => {
     const url = `/categorys/${category._id}`;
     return instance.put(url, category);
 }

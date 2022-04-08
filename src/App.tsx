@@ -28,52 +28,6 @@ import Ntfcation from './Pages/Website/Ntfcation';
 import Contact from './Pages/Website/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [categorys, setCategorys] = useState<CategoryType[]>([]);
-  useEffect(() => {
-    const getProducts = async () => {
-      const {data} = await list();
-      setProducts(data);
-    }
-    getProducts();
-  },[])
-  
-  const removeItem = (id: number) => {
-    // console.log('app.js', id);
-    confirm('bạn có muốn xóa không ?');
-    remove(id);
-    setProducts(products.filter(item => item._id !== id));
-  }
-  const onHanlderAdd = (data: any) => {
-    create(data);
-     setProducts([...products, data])
-     alert('Đăng ký Thành công')
-  }
-  const onHandleUpdate = async (product : ProductType) => {
-    console.log(product);
-        const {data} = await update(product);
-        //reRender
-        setProducts(products.map(item => item._id === data.id ? data: item));
-  }
-  // Category
-  useEffect(() => {
-    const getCategory = async () => {
-      const {data} = await listCate();
-      setCategorys(data);
-    }
-    getCategory();
-  },[])
-  // delete category
-  const removeItemCate = (id: any) => {
-      confirm('Bạn có muốn xóa không ?')
-      removeCate(id)
-      setCategorys(categorys.filter(item => item._id !== id));
-  }
-  const onHanlderAddCate = (data: any) => {
-    add(data);
-    setCategorys([...categorys, data])
-  }
   return (
     <div className="App">
 
@@ -92,13 +46,13 @@ function App() {
           <Route index element={<Dashboard />} />
 
             <Route path='products' >
-              <Route index element={<List  products={products} onAdd={removeItem}/>} /> 
-              <Route path='add' element={<Add  onAdd={onHanlderAdd}  />}/>
-              <Route path=':id/edit' element={<Edit onUpdate={onHandleUpdate}/>} />
+              <Route index element={<List />} /> 
+              <Route path='add' element={<Add />}/>
+              <Route path=':id/edit' element={<Edit />} />
             </Route>
            <Route path='category'>
-              <Route index element={<ListCategory categorys={categorys} onDeleteCate={removeItemCate}/>} />
-              <Route path='add' element={<AddCategory onAdd={onHanlderAddCate}/>}/>
+              <Route index element={<ListCategory />} />
+              <Route path='add' element={<AddCategory />}/>
               <Route path=':id/edit' element={<EditCategory/>} />
            </Route>
         </Route>
