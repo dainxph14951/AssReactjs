@@ -10,8 +10,6 @@ import News from './Pages/Website/News';
 import Products from './Pages/Website/Products';
 import ProductDetail from './Pages/Website/ProductDetail';
 import Add from './Pages/Admin/Products/Add';
-import { ProductType } from './types/products';
-import {create, list, remove, update} from '../src/api/products'
 import Signin from './Pages/Website/Signin';
 import Signup from './Pages/Website/Signup';
 import ListCategory from './Pages/Admin/Category/ListCategory';
@@ -19,9 +17,6 @@ import Dashboard from './Components/Admin/Dashboard';
 import Edit from './Pages/Admin/Products/Edit';
 import AddCategory from './Pages/Admin/Category/AddCategory';
 import EditCategory from './Pages/Admin/Category/EditCategory';
-import {CategoryType} from './types/category'
-import {listCate, add, removeCate} from '../src/api/category';
-import { data } from './data';
 import Cart from './Pages/Website/Cart';
 import Bill from './Pages/Website/Bill';
 import Ntfcation from './Pages/Website/Ntfcation';

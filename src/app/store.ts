@@ -1,19 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
-import authReducer from '../features/auth/authSlice';
-import categoryReducer from '../features/category/categorySlice';
-import productReducer from '../features/product/productSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import categoryReducer from "../features/category/categorySlice"
+import productsReducer from "../features/product/productSlice";
+import authReducer from "../features/auth/authSlice";
 
-export const store = configureStore({
-  reducer: { //data
-    auth: authReducer,
-    category: categoryReducer,
-    product: productReducer
-  },
+const store = configureStore({
+    reducer: {
+        categorys: categoryReducer,
+        products : productsReducer,
+        auth : authReducer
+    }
 });
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export default store;
-
+export default store
 // function getInt(a: string) {
 //   return parseInt(a);
 // }

@@ -1,51 +1,55 @@
-import React from 'react'
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import { CategoryType } from '../../types/category'
-import { listCate,addCate, updateCate, removeCate } from '../../api/category';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { listCate,addCate,updateCate,removeCate } from "../../api/category";
+import { CategoryType } from '../../types/category' 
+import type { RootState } from "../../app/store";
 
-// createAsyncThunk một hàm nhận 1 chuỗi kiểu hành động redux và một hàm gọi lại sẽ trả về một kiều kiện
-// createSlice Một hàm chấp nhận trạng thái ban đầu đồng thời tự động tạo trình tạo hành động và loại hành động tương ứng
-
-export const getCategorys = createAsyncThunk(
-    'category/getcategorys',
-    async()=> {
-        const {data} = await listCate();
+export const getCategorys = createAsyncThunk("categorys/getCategorys",
+    async () => {
+        const { data } = await listCate()
         return data;
-    }
-);
-export const addCategorys = createAsyncThunk(
-  'category/addcategorys',
-    async(cateId: CategoryType  ) => {
-      const {data} = await addCate(cateId);
-      return data;
-    }
-);
-export const updateCategorys = createAsyncThunk(
-  'category/updatacategorys',
-  async(cateId: CategoryType  ) => {
-      const {data} = await updateCate(cateId);
-      return data;
-  }
-
-);
-export const removeCategory = createAsyncThunk(
-  'category/removeCategory',
-  async(cateId: any) => {
-      const {data} = await removeCate(cateId);
-      return data;
-  }
-
-);
-
+    });
+export const addCategory = createAsyncThunk("categorys/addCategory",
+    async (params: CategoryType) => {
+        const { data } = await addCate(params)
+        return data;
+    });
+export const removeCategory = createAsyncThunk("categorys/removeCategory",
+    async (params: any) => {
+        const { data } = await removeCate(params);
+        return data;
+    });
+export const updateCategory = createAsyncThunk("categorys/updateCategory",
+    async (params: CategoryType) => {
+        const { data } = await updateCate(params);
+        return data;
+    });
 const categorySlice = createSlice({
-  name: "category", //tên của hành động
-  initialState: { //stater
-    value: []
-  },
-  reducers: {
-    
-  }
-
-});
-
-export default categorySlice.reducer;
+    name: "categorys",
+    initialState: {
+        value: [],
+        loading: false
+    },
+    reducers: {},
+    extraReducers: {
+        [getCategorys.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [getCategorys.fulfilled]: (state, action) => {
+            (state.loading = false),
+                (state.value = action.payload);
+        },
+        [getCategorys.rejected]: (state, action) => {
+            state.status = action.error;
+        },
+        [addCategory.fulfilled]: (state, action) => {
+            state.value.push(action.payload);
+        },
+        [removeCategory.fulfilled]: (state, action) => {
+            state.value = state.value.filter(item => item._id !== action.payload._id)
+        },
+        [updateCategory.fulfilled]: (state, action) => {
+            state.value = state.value.map(item => item._id === action.payload._id ? action.payload : item)
+        },
+    },
+})
+export default categorySlice.reducer
