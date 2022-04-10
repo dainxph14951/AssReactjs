@@ -1,13 +1,17 @@
 import Reactm, {useEffect, useState} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams,useNavigate } from 'react-router-dom';
 import { readProduct }  from '../../api/products';
 import {ProductType} from  '../../types/products'
+import { addItem } from '../../features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 
-type Props = {}
-
-const ProductDetail = (props: Props) => {
+const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<ProductType>();
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState<number>(1);
+  const dispatch = useAppDispatch();
+  
   useEffect(() => {
     const getProduct = async () => {
         const {data} = await readProduct(id);
@@ -16,6 +20,18 @@ const ProductDetail = (props: Props) => {
     }
     getProduct();
 },[]);
+const addItemToCart = () => {
+  dispatch(addItem({
+      _id : product?._id,
+      name: product?.name,
+      img : product?.img,
+      price : product?.price,
+
+      quantity: quantity
+  }));
+  navigate("cart");
+  // alert("Thêm thành công.")
+}
   return (
     <div>
       <div className="bg-white">
@@ -101,6 +117,13 @@ const ProductDetail = (props: Props) => {
             </div>
             <p className="sr-only">4 out of 5 stars</p>
             <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+            <span className="mr-3">Quantity</span>
+                                    <div className="">
+                                        <input min={1} onChange={(e) =>{
+                                            setQuantity(+e.target.value)
+                                        }} defaultValue={1} type="number" className="w-[80px] rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-[5px]">
+                                        </input>
+                                    </div>
           </div>
         </div>
 
@@ -214,9 +237,9 @@ const ProductDetail = (props: Props) => {
               </div>
             </fieldset>
           </div>
-          <Link to={`cart`}>
-          <button type="submit" className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">Add to bag</button>
-          </Link>
+          <div>
+          <button onClick={() => {addItemToCart()}} type="submit" className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">Add to bag</button>
+          </div>
         </form>
       </div>
 
