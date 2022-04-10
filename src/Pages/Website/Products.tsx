@@ -1,8 +1,32 @@
-import React from 'react'
+import React,{useEffect, useRef} from 'react'
+import { Link,useParams } from 'react-router-dom'
+import {useAppDispatch,useAppSelector} from '../../app/hooks'
+import {listsProduct,namesProduct,filterProName} from '../../features/product/productSlice'
+import {ProductType} from '../../types/products'
 
-type Props = {}
-
-const Products = (props: Props) => {
+const Products = () => {
+  const { id } = useParams(null);
+  const dispatch =  useAppDispatch();
+  const products = useAppSelector((state) => state.products.value)
+  const timeClearRef = useRef(null);
+  useEffect(() => {
+    if (!id) {
+        dispatch(listsProduct())
+    } else {
+        dispatch(filterProName(id))
+    }
+}, [id]);
+  useEffect(() => {
+    dispatch(listsProduct());
+}, [])
+const searchName = (keyword :string) => {
+  if (timeClearRef.current) {
+      clearTimeout(timeClearRef.current)
+  };
+  timeClearRef.current = setTimeout(() => {
+      dispatch(namesProduct(keyword))
+  }, 300)
+}
   return (
     <div className='container'>
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,12 +37,20 @@ const Products = (props: Props) => {
           <div className="relative inline-block text-left">
             <div>
               <button type="button" className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" id="menu-button" aria-expanded="false" aria-haspopup="true">
-                Sort
                 <svg className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
               </button>
             </div>
+            <div className="">
+                            <label htmlFor="form-search" className="sr-only">Search</label>
+                            <div className="relative mb-[30px]">
+                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" /></svg>
+                                </div>
+                                <input onChange={(e) => searchName(e.target.value)} type="text" id="form-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none" placeholder="Search name product" />
+                            </div>
+                        </div>
             <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" >
               <div className="py-1" role="none">
               </div>
@@ -156,25 +188,29 @@ const Products = (props: Props) => {
             <div className="bg-white">
             <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
               <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+               {products?.map((item: ProductType, index) => {
+                    return <div key={index}>
+                  <Link to={`/productdetail/${item._id}`} >
                 <div className="group relative">
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="${items.img}" alt="Front of men&#039;s Basic Tee in black." className="w-full h-full object-center object-cover lg:w-full lg:h-full"/>
+                    <img src={item.img} alt="Front of men&#039;s Basic Tee in black." className="w-full h-full object-center object-cover lg:w-full lg:h-full"/>
                   </div>
                   <div className="mt-4 flex justify-between">
                   
                     <div>
-                      <h3 className="text-sm text-gray-700">
-                        <a href="/products/${items.id}">
-                          <span aria-hidden="true" className="absolute inset-0"></span>
-                         
-                        </a>
+                      <h3 className="text-sm text-gray-700 no-underline">
+                          <span className='' >{item.name}</span>
                       </h3>
-                      <p className="mt-1 text-sm text-gray-500">Black</p>
+                      <p className="mt-1 text-sm text-gray-500">{item.price}</p>
                     </div>
                     <p className="text-sm font-medium text-gray-900"></p>
                   </div>
                   
                 </div>
+                </Link>  
+                </div>
+               })}
+ 
               </div>
               
             </div>

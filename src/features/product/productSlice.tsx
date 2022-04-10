@@ -1,9 +1,9 @@
 import React from 'react'
 import {createAsyncThunk , createSlice} from '@reduxjs/toolkit';
-import {listProduct,addProduct,removeProduct,updateProduct,NamePro,productCate} from '../../api/products';
+import {listProduct,addProduct,removeProduct,updateProduct,NamePro,productCate,likeNamePro} from '../../api/products';
 import {ProductType} from '../../types/products';
 
-export const listsProduct =createAsyncThunk(
+export const listsProduct =createAsyncThunk( //1
   'products/listsProduct', async () => {
     const {data} = await listProduct();
     return data;
@@ -44,7 +44,11 @@ export const namesProduct =createAsyncThunk(
     return data;
   }
 ); 
-
+export const filterProName = createAsyncThunk(
+  "products/filterProName", async (keyword: string) => {
+      const { data } = await likeNamePro(keyword)
+      return data
+  });
 const productSlice = createSlice({
   name: "products",
   initialState: {

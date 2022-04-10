@@ -13,8 +13,9 @@ const AdminLayount = (props: Props) => {
       <div className="h-screen flex flex-row flex-wrap">
         <SliderAdmin />
         <div className="bg-gray-100 flex-1">
+          <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <HeaderAdmin />
-
+          </header>
           <main className='p-[10px]'>
             <Outlet />
           </main>

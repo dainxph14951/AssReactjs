@@ -29,3 +29,7 @@ export const productCate = (id : any) =>{
     const url=`/products/ct=${id}`;
     return instance.get(url)
 };
+export const likeNamePro = (keyword : any) =>{
+    const url=`/products?name=${keyword}`;
+    return instance.get(url)
+};

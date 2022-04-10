@@ -33,8 +33,8 @@ function App() {
             <Route path='products' element={<Products />}/>
             <Route path='news' element={<News/>}/>
             <Route path='contact' element={<Contact/>}/>
-            <Route path='productdetail' element={<ProductDetail/>}/>
-            <Route path='productdetail/cart' element={<Cart/>}/>
+            <Route path='productdetail/:id' element={<ProductDetail/>}/>
+            <Route path='productdetail/:id/cart' element={<Cart/>}/>
             <Route path='productdetail/cart/bill' element={<Bill/>}/>
             <Route path='productdetail/cart/bill/notification' element={<Ntfcation />}/>
         </Route>
