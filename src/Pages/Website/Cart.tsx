@@ -1,9 +1,7 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-type Props = {}
-
-const Cart = (props: Props) => {
+const Cart = () => {
   return (
     <div>  <div className="flex flex-col m-10">
                     <h4>Cart</h4>
@@ -80,9 +78,9 @@ const Cart = (props: Props) => {
       </div>
         </div>
          </div>
-         <NavLink to="bill" className='no-underline'>
+         <Link to={``} className='no-underline'>
           <button type="submit" className="mt-10  bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline ">Buy now</button>
-          </NavLink>
+          </Link>
         </div>
   )
 }
