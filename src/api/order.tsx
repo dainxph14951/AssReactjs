@@ -1,19 +1,19 @@
 import { OrderType } from "../types/order";
 import instance from "./instance";
 
-export const listProduct = () => {
+export const listOrder = () => {
     const url = `orders`;
     return instance.get(url); 
 }
-export const removeProduct = (id: any) => {
+export const removeOrder = (id: any) => {
     const url = `orders/${id}`;
     return instance.delete(url); 
 }
-export const addProduct = (order : OrderType) =>{
+export const addOrder= (order : OrderType) =>{
     const url = "/orders";
     return instance.post(url,order)
 };
-export const updateProduct = (order: OrderType) => {
+export const updateOrder = (order: OrderType) => {
     const url = `/orders/${order._id}`;
     return instance.put(url, order);
 }

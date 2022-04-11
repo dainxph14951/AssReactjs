@@ -1,5 +1,6 @@
 import React,{useEffect, useRef} from 'react'
 import { Link,useParams } from 'react-router-dom'
+import { getCategorys } from '../../features/category/categorySlice'
 import {useAppDispatch,useAppSelector} from '../../app/hooks'
 import {listsProduct,namesProduct,filterProName} from '../../features/product/productSlice'
 import {ProductType} from '../../types/products'
@@ -8,6 +9,7 @@ const Products = () => {
   const { id } = useParams(null);
   const dispatch =  useAppDispatch();
   const products = useAppSelector((state) => state.products.value)
+  const categorys =  useAppSelector((state) => state.categorys.value)
   const timeClearRef = useRef(null);
   useEffect(() => {
     if (!id) {
@@ -18,6 +20,9 @@ const Products = () => {
 }, [id]);
   useEffect(() => {
     dispatch(listsProduct());
+}, [])
+useEffect(() => {
+  dispatch(getCategorys());
 }, [])
 const searchName = (keyword :string) => {
   if (timeClearRef.current) {
@@ -82,10 +87,16 @@ const searchName = (keyword :string) => {
           <form className="hidden lg:block">
             <h3 className="sr-only">Categories</h3>
             <ul role="list" className="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
-  
-              <li>
-                <a href="/sanpham">All </a>
+            <li>
+                <a href="/sanpham">All Product </a>
               </li>
+                {categorys?.map((item, index) => {
+                        return <div key={index}>
+              <li>
+                <a href="">{item.name}</a>
+              </li>
+              </div>
+                      })}
               <li><a href="/products/${item.id}/cate"></a></li>
             </ul>
 

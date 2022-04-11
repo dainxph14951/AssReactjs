@@ -3,12 +3,26 @@ import { useEffect, useState } from 'react';
 import { ProductType } from '../../../types/products';
 import {listsProduct,deleteProduct} from '../../../features/product/productSlice'
 import { Link } from 'react-router-dom';
+import { CategoryType } from '../../../types/category';
+import { listCate } from '../../../api/category';
 const ListProduct = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.value)
+  const [categorys, setCategorys] = useState<CategoryType[]>();
+
+  useEffect(() => {
+    const getCategorys = async () => {
+        const { data } = await listCate();
+        setCategorys(data);
+    };
+    getCategorys();
+    dispatch(listsProduct())
+}, [])
+
   useEffect(() => {
     dispatch(listsProduct());
 }, [])
+
 const removeItem = (id: any) => {
   confirm("Bạn có muốn xoá không ?");
   dispatch(deleteProduct(id))
@@ -41,7 +55,10 @@ const removeItem = (id: any) => {
                                 {index + 1}
                             </td>
                             <td className="px-4 py-3 text-sm">
-                                {item.category}
+                                {/* {item.category} */}
+                                {categorys && categorys.map((item, index) => {
+                                return <h3 key={index} className="py-1" value={item._id}>{item.name}</h3>
+                                  })}
                             </td>
                             <td className="px-4 py-3 text-sm">
                                 {item.name}
