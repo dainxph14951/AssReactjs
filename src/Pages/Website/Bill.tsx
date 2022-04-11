@@ -5,7 +5,8 @@ type Props = {}
 
 const Bill = (props: Props) => {
   return (
-    <div><div className="m-20 ">
+    <div>
+      <div className="m-20 ">
     <div className="mt-10 sm:mt-0">
       <div className="mt-5 md:mt-0 md:col-span-2">
 

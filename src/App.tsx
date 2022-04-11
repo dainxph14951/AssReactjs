@@ -35,7 +35,7 @@ function App() {
             <Route path='contact' element={<Contact/>}/>
             <Route path='productdetail/:id' element={<ProductDetail/>}/>
             <Route path='productdetail/:id/cart' element={<Cart/>}/>
-            <Route path='productdetail/cart/bill' element={<Bill/>}/>
+            <Route path='productdetail/:id/cart/bill' element={<Bill/>}/>
             <Route path='productdetail/cart/bill/notification' element={<Ntfcation />}/>
         </Route>
         <Route path='admin' element={<AdminLayount />}>
