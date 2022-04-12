@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { SubmitHandler, useForm,  } from "react-hook-form"
+import { getTotalItems } from '../../features/cart/cartSlice';
+import { ProductType } from '../../types/products';
+import {addOrder} from '../../api/order'
+const Bill = () => {
+  const dispatch = useAppDispatch();
+  const itemsCart = useAppSelector(state => state.cart.items);
+  const user = useAppSelector(state => state.auth.user);
+  console.log(user);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<any>();
 
-type Props = {}
+  useEffect(() => {
+    dispatch(getTotalItems());
+  }, [itemsCart])
 
-const Bill = (props: Props) => {
+  const onSubmit: SubmitHandler<any> = (data) => {
+   
+
+}
   return (
     <div>
       <div className="m-20 ">
@@ -11,7 +27,7 @@ const Bill = (props: Props) => {
       <div className="mt-5 md:mt-0 md:col-span-2">
 
         <div className="shadow overflow-hidden sm:rounded-md">
-        <form action="#" method="POST" id="form-add-category">
+        <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" id="form-add-category">
           <div className="px-4 py-5 bg-white sm:p-6">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
@@ -62,10 +78,15 @@ const Bill = (props: Props) => {
           <div className="mt-8">
 
           <div className="flow-root">
+          {itemsCart?.map((item : ProductType, index) => {
+                return (<div >
+                      
+
+
             <div role="list" className="-my-6 divide-y divide-gray-200">
               <div className="py-6 flex">
                 <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-                  <img src=""
+                  <img src={item.img}
                     alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
                     className="w-full h-full object-center object-cover"/>
                 </div>
@@ -76,10 +97,9 @@ const Bill = (props: Props) => {
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <h3>
                         <a href="#">
+                          {item.name}
                         </a>
                       </h3>
-                      <p className="ml-4">
-                      </p>
                     </div>
                     <p className="mt-1 text-sm text-gray-500">
                       Salmon
@@ -87,38 +107,46 @@ const Bill = (props: Props) => {
                   </div>
                   <div className="flex-1 flex items-end justify-between text-sm">
                     <p className="text-gray-500">
+                      {item.quantity} <hr/>
+                             {item.price}USD
                     </p>
-
                     <div className="flex">
-                      <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                      <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">remove</button>
                     </div>
                   </div>
-                  <div className="flex justify-between text-base font-medium text-gray-900">
-                  </div>
+
                 </div>
                 
               </div>
+
             </div>
+            <div className="flex justify-between text-base font-medium text-gray-900">
+                    {/* <p>Tổng Tiền</p>
+                    {item.quantity * item.price}USA */}
+                  </div>
+            </div>
+                )
+          })}
             <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
-            <p className="mt-0.5 text-sm text-gray-500">Shipping tax is charged at checkout.</p>
+            <p className="mt-0.5 text-sm text-gray-500">Thuế vận chuyển được tính khi thanh toán.</p>
             <div className="mt-6">
-              <NavLink to="notification"
-                className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Payment</NavLink>
+              <a href=""
+                className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Thanh
+                Toán</a>
             </div>
             <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
               <p>
-                or <button type="button" className="text-indigo-600 font-medium hover:text-indigo-500">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
+                or <button type="button" className="text-indigo-600 font-medium hover:text-indigo-500">Tiếp Tục
+                  Mua Sắm<span aria-hidden="true"> &rarr;</span></button>
               </p>
             </div>
           </div>
           </div>
          
         </div>
-        </div>
-      
       </div>
     </div>
-
+    </div>
 
 </div>
 </div>

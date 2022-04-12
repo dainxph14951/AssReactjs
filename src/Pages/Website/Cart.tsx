@@ -1,24 +1,19 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { decreaseQuantity, getTotalItems, increaseQuantity, removeItem } from '../../features/cart/cartSlice'
+import { getTotalItems, removeItem } from '../../features/cart/cartSlice'
 import { ProductType } from '../../types/products'
 const Cart = () => {
   const dispatch = useAppDispatch();
   const itemsCart = useAppSelector(state => state.cart.items);
-  const total = useAppSelector(state => state.cart.total)
+
   useEffect(() => {
     dispatch(getTotalItems());
   }, [itemsCart])
   const remove = (_id: any) => {
+    confirm("bạn có muốn xóa không? ");
     dispatch(removeItem(_id))
   };
-  const increase = (_id: any) => {
-    dispatch(increaseQuantity(_id))
-  }
-  const decrease = (_id: any) => {
-    dispatch(decreaseQuantity(_id))
-  }
   return (
     <div>  <div className="flex flex-col m-10">
       <h4>Cart</h4>

@@ -38,7 +38,7 @@ const removeItem = (id: any) => {
             <thead>
                 <tr className="text-xs font-semibold tracking-wide text-left text-white uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-green-500">
                     <th className="px-4 py-3">STT</th>
-                    <th className="px-4 py-3">Category</th>
+                    {/* <th className="px-4 py-3">Category</th> */}
                     <th className="px-4 py-3">Name</th>
                     <th className="px-4 py-3">Img</th>
                     <th className="px-4 py-3">Price</th>
@@ -54,12 +54,10 @@ const removeItem = (id: any) => {
                             <td className="px-4 py-3 text-sm">
                                 {index + 1}
                             </td>
-                            <td className="px-4 py-3 text-sm">
-                                {/* {item.category} */}
-                                {categorys && categorys.map((item, index) => {
-                                return <h3 key={index} className="py-1" value={item._id}>{item.name}</h3>
-                                  })}
-                            </td>
+                            {/* <td className="px-4 py-3 text-sm">
+                                {item.category}
+
+                            </td> */}
                             <td className="px-4 py-3 text-sm">
                                 {item.name}
                             </td>

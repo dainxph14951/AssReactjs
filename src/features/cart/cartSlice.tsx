@@ -1,6 +1,6 @@
 import React from 'react'
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
@@ -13,14 +13,8 @@ const cartSlice = createSlice({
             const existItem = state.items.find((item) => item._id === newItem._id );
             if(!existItem){
                 state.items.push(newItem);
-                toast.success("More success", {
-                    position: "bottom-right",
-                });
             }else{
                 existItem.quantity += action.payload.quantity;
-                toast.info("More success", {
-                    position: "bottom-right",
-                });
             }
         },
         getTotalItems : (state,action) => {
@@ -32,14 +26,8 @@ const cartSlice = createSlice({
         },
         removeItem: (state, action: PayloadAction) => {
             state.items = state.items.filter(item => item._id !== action.payload);
-        },
-        increaseQuantity: (state, action: PayloadAction) => {
-            state.items.find((item) => item._id == action.payload).quantity++;
-        },
-        decreaseQuantity: (state, action: PayloadAction) => {
-            state.items.find((item) => item._id == action.payload).quantity--;
         }
     }
 })
-export const { addItem, removeItem,getTotalItems, increaseQuantity,decreaseQuantity} = cartSlice.actions
+export const { addItem, removeItem,getTotalItems} = cartSlice.actions
 export default cartSlice.reducer
