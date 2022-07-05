@@ -15,7 +15,7 @@ const Banner = (props: Props) => {
     </div>
     <div className="carousel-inner">
         <div className="carousel-item active">
-            <img src="https://conversestore.vn/wp-content/uploads/2021/07/z2647671391884_0b98febd92e957af3beefa4995c2a0d5-0x600.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://bizweb.dktcdn.net/100/039/880/themes/751871/assets/slider_2.png?1646821092404" className="d-block w-100" alt="..."/>
             <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content htmlFor the first slide.</p>

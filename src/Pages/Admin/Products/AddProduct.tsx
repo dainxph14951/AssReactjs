@@ -9,7 +9,9 @@ import axios from 'axios';
 import { addsProduct} from '../../../features/product/productSlice';
 const AddProduct = () => {
   const dispatch = useAppDispatch();
+  
   const { register, handleSubmit, formState } = useForm<ProductType>();
+
   const [categorys, setCategorys] = useState<CategoryType[]>([])
   const navigate = useNavigate();
   const [files, setFiles] = useState<any>([]);

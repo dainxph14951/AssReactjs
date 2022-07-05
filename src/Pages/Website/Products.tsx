@@ -2,22 +2,15 @@ import React,{useEffect, useRef} from 'react'
 import { Link,useParams } from 'react-router-dom'
 import { getCategorys } from '../../features/category/categorySlice'
 import {useAppDispatch,useAppSelector} from '../../app/hooks'
-import {listsProduct,namesProduct,filterProName} from '../../features/product/productSlice'
+import {listsProduct,namesProduct} from '../../features/product/productSlice'
 import {ProductType} from '../../types/products'
 
 const Products = () => {
-  const { id } = useParams(null);
   const dispatch =  useAppDispatch();
   const products = useAppSelector((state) => state.products.value)
   const categorys =  useAppSelector((state) => state.categorys.value)
   const timeClearRef = useRef(null);
-  useEffect(() => {
-    if (!id) {
-        dispatch(listsProduct())
-    } else {
-        dispatch(filterProName(id))
-    }
-}, [id]);
+
   useEffect(() => {
     dispatch(listsProduct());
 }, [])

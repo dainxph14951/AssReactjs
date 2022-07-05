@@ -8,8 +8,6 @@ import {addOrder} from '../../api/order'
 const Bill = () => {
   const dispatch = useAppDispatch();
   const itemsCart = useAppSelector(state => state.cart.items);
-  const user = useAppSelector(state => state.auth.user);
-  console.log(user);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<any>();
 
   useEffect(() => {

@@ -3,7 +3,9 @@ import {createAsyncThunk , createSlice} from '@reduxjs/toolkit';
 import {listProduct,addProduct,removeProduct,updateProduct,NamePro,productCate,likeNamePro} from '../../api/products';
 import {ProductType} from '../../types/products';
 
+// tạo async action = createAsyncThunk
 export const listsProduct =createAsyncThunk( //1
+  // tên của slider và tên của hàm
   'products/listsProduct', async () => {
     const {data} = await listProduct();
     return data;
@@ -44,29 +46,35 @@ export const namesProduct =createAsyncThunk(
     return data;
   }
 ); 
-export const filterProName = createAsyncThunk(
-  "products/filterProName", async (keyword: string) => {
-      const { data } = await likeNamePro(keyword)
-      return data
-  });
-const productSlice = createSlice({
-  name: "products",
-  initialState: {
+const productSlice = createSlice({ // createSlice thay thế cho gọi reducer và action
+  name: "products", // tên của hành động
+  initialState: { // giá trị ban đầu
       value: [],
       loading: true,
+      error: "",
   },
-  reducers: {
+  reducers: { // action hành động để làm việc với gtrij ban đầu
   },
   extraReducers: {
-      [listsProduct.pending]: (state, action) => {
-          state.loading = true
+    // cập nhật trạng thái khác nhau thay đổi state
+    // bắt đầu
+      [listsProduct.pending]: (state, action) => { // Reducers
+          state.loading = true;
       },
+          // khi lỗi
+      [listsProduct.rejected]: (state, action) => { // Reducers
+        state.loading = false;
+        state.error = action.payload;
+    },
+        // thành công
       [listsProduct.fulfilled]: (state, action) => {
+        state.loading = false;
           state.value = action.payload;
       },
       [addsProduct.fulfilled]: (state, action) => {
           state.value.push(action.payload)
       },
+
       [deleteProduct.fulfilled]: (state, action) => {
           state.value = state.value.filter(item => item._id !== action.payload._id)
       },
