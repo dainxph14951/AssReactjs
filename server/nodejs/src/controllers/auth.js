@@ -3,14 +3,14 @@ import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res) => {
     try {
-        const { name, phonenumber, address, email, password } = req.body; // gửi require  lên server
-        const existUser = await User.findOne({email}).exec();
-        if(existUser){
-            return res.status(401).json({ // kiểm tra sự tồn tại
+        const { name, phonenumber, address, email, password } = req.body;
+        const existUser = await User.findOne({ email }).exec();
+        if (existUser) {
+            return res.status(401).json({
                 messager: 'User đã tồn tại'
             })
         }
-        const user = await new User({ name, phonenumber, address, email, password}).save(); //lấy dữ liệu gửi lên
+        const user = await new User({ name, phonenumber, address, email, password }).save();
         res.status(200).json({
             user: {
                 _id: user._id,
@@ -26,19 +26,19 @@ export const signup = async (req, res) => {
 
 }
 export const signin = async (req, res) => {
-    const {email, password} = req.body;
-    const user = await User.findOne({email}).exec();
-    if(!user){
-       return res.status(400).json({
+    const { email, password } = req.body;
+    const user = await User.findOne({ email }).exec();
+    if (!user) {
+        return res.status(400).json({
             messager: 'User không tồn tại'
         })
     }
-    if(!user.authenticate(password)){
+    if (!user.authenticate(password)) {
         return res.status(400).json({
             messager: 'Sai mật khẩu'
         })
     }
-    const token = jwt.sign({_id: user.id}, '123456', { expiresIn: 60 * 60 });
+    const token = jwt.sign({ _id: user.id }, '123456', { expiresIn: 60 * 60 });
     res.json({
         token,
         user: {

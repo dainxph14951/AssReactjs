@@ -1,4 +1,4 @@
-import { SignupType} from "../types/signup";
+import { SignupType } from "../types/signup";
 import { SigninType } from "../types/signin"
 import instance from "./instance";
 

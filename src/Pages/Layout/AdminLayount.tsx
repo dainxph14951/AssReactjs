@@ -14,7 +14,7 @@ const AdminLayount = (props: Props) => {
         <SliderAdmin />
         <div className="bg-gray-100 flex-1">
           <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-          <HeaderAdmin />
+            <HeaderAdmin />
           </header>
           <main className='p-[10px]'>
             <Outlet />

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Banner from '../../Components/Website/Banner'
 import Footer from '../../Components/Website/Footer'
 import Headers from '../../Components/Website/Header'
@@ -9,16 +9,16 @@ const WebsiteLayount = (props: Props) => {
   return (
     <div>
       <header>
-        <Headers/>
+        <Headers />
       </header>
       <div>
-        <Banner/>
+        <Banner />
       </div>
       <main>
-      <Outlet/>    
+        <Outlet />
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
 
     </div>

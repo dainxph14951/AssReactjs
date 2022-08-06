@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { listCate,addCate,updateCate,removeCate } from "../../api/category";
-import { CategoryType } from '../../types/category' 
+import { listCate, addCate, updateCate, removeCate } from "../../api/category";
+import { CategoryType } from '../../types/category'
 import type { RootState } from "../../app/store";
 
 export const getCategorys = createAsyncThunk("categorys/getCategorys",

@@ -17,11 +17,12 @@ app.use('/api', productRouter);
 app.use('/api', categoryRouter);
 app.use('/api', authRouter);
 app.use('/api', orderRouter);
+
 // connect database
 mongoose
   .connect('mongodb://127.0.0.1:27017/dbnamw')
   .then(() => console.log('Connect db thanh cong'));
-  
+
 // Connect
 const PORT = 8000;
 app.listen(PORT, () => {

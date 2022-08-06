@@ -238,16 +238,12 @@ const Nav = (props: Props) => {
             </ul>
           </div>
           <div>
-          <a href="/signin" className='p-2 text-gray-500 '>Signin</a>
+            <a href="/signin" className='p-2 text-gray-500 '>Signin</a>
             <a href="/signup" className='p-2 text-gray-500' >Signup</a>
           </div>
-
         </div>
       </div>
     </nav>
-
-
-
   )
 }
 

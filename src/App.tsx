@@ -29,34 +29,34 @@ function App() {
 
       <Routes>
         <Route path='/' element={<WebsiteLayount />}>
-            <Route index element={<HomePage/> }/>
-            <Route path='products' element={<Products />}/>
-            <Route path='news' element={<News/>}/>
-            <Route path='contact' element={<Contact/>}/>
-            <Route path='productdetail/:id' element={<ProductDetail/>}/>
-            <Route path='productdetail/:id/cart' element={<Cart/>}/>
-            <Route path='productdetail/:id/cart/bill' element={<Bill/>}/>
-            <Route path='productdetail/cart/bill/notification' element={<Ntfcation />}/>
+          <Route index element={<HomePage />} />
+          <Route path='products' element={<Products />} />
+          <Route path='news' element={<News />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='productdetail/:id' element={<ProductDetail />} />
+          <Route path='productdetail/:id/cart' element={<Cart />} />
+          <Route path='productdetail/:id/cart/bill' element={<Bill />} />
+          <Route path='productdetail/cart/bill/notification' element={<Ntfcation />} />
         </Route>
         <Route path='admin' element={<AdminLayount />}>
           <Route index element={<Dashboard />} />
 
-            <Route path='products' >
-              <Route index element={<ListProduct />} /> 
-              <Route path='add' element={<AddProduct />}/>
-              <Route path=':id/edit' element={<EditProduct />} />
-            </Route>
-           <Route path='category'>
-              <Route index element={<ListCategory />} />
-              <Route path='add' element={<AddCategory />}/>
-              <Route path=':id/edit' element={<EditCategory/>} />
-           </Route>
+          <Route path='products' >
+            <Route index element={<ListProduct />} />
+            <Route path='add' element={<AddProduct />} />
+            <Route path=':id/edit' element={<EditProduct />} />
+          </Route>
+          <Route path='category'>
+            <Route index element={<ListCategory />} />
+            <Route path='add' element={<AddCategory />} />
+            <Route path=':id/edit' element={<EditCategory />} />
+          </Route>
         </Route>
-        <Route path='signin' element={<Signin/>} />
-        <Route path='signup' element={<Signup/>} />
-        
+        <Route path='signin' element={<Signin />} />
+        <Route path='signup' element={<Signup />} />
+
       </Routes>
-      
+
 
 
     </div>

@@ -19,7 +19,7 @@ const EditCategory = () => {
         }
         getCategory();
     }, [])
-    
+
     const onSubmit: SubmitHandler<CategoryType> = data => {
         dispatch(updateCategory(data))
         console.log(data);

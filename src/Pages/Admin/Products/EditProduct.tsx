@@ -14,13 +14,16 @@ import { updatesProduct } from '../../../features/product/productSlice'
 const EditProduct = () => {
   const dispatch = useAppDispatch()
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ProductType>();
+
   const navigate = useNavigate();
   const { id } = useParams();
+
   const [categorys, setCategorys] = useState<CategoryType[]>([]);
 
   useEffect(() => {
     const getProduct = async () => {
       const { data } = await readProduct(id);
+      console.log(id)
       reset(data);
     }
     getProduct();
