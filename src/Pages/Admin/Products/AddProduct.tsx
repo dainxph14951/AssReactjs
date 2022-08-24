@@ -10,7 +10,7 @@ import { addsProduct } from '../../../features/product/productSlice';
 const AddProduct = () => {
   const dispatch = useAppDispatch();
 
-  const { register, handleSubmit, formState } = useForm<ProductType>();
+  const { register, handleSubmit, formState: {errors} } = useForm<ProductType>();
 
   const [categorys, setCategorys] = useState<CategoryType[]>([])
   const navigate = useNavigate();
@@ -67,9 +67,11 @@ const AddProduct = () => {
               return <option key={index} className="py-1" value={item._id}>{item.name}</option>
             })}
           </select>
+          {errors.category && <span className='text-danger'>Không được để trống</span>}
         </div>
         <span>Name </span><hr />
         <input type="text" {...register('name', { required: true })} /><hr />
+        {errors.name && <span className='text-danger'>Không được để trống</span>}<hr />
         <div className="w-full  mb-[10px]">
           <label htmlFor="Image" className="block mb-3 text-sm font-semibold text-gray-500">Image</label>
           <input multiple onChange={(e) => { previewImg(e.target.files) }} type="file" placeholder="...." className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600" />
@@ -78,15 +80,19 @@ const AddProduct = () => {
               return <img key={index} className='ml-5' src={URL.createObjectURL(item)} alt="" width={150} height={200} />
             })}
           </label>
+      
         </div>
         <span>Price </span><hr />
         <input type="number" {...register('price', { required: true })} /><hr />
+        {errors.price && <span className='text-danger'>Không được để trống</span>}<hr />
 
         <span>Quantity </span><hr />
         <input type="number" {...register('quantity', { required: true })} /><hr />
+        {errors.quantity && <span className='text-danger'>Không được để trống</span>}<hr />
 
         <span>Desc </span><hr />
         <input type="text" {...register('desc', { required: true })} /><hr />
+        {errors.desc && <span className='text-danger'>Không được để trống</span>}<hr />
 
         <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
           Add
