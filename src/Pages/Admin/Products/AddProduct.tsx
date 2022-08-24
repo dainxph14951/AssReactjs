@@ -33,7 +33,7 @@ const AddProduct = () => {
         });
         imgLink.push(image.data.url)
       }
-      dispatch(addsProduct({ ...data, img: imgLink[0] }));
+       dispatch(addsProduct({ ...data, img: imgLink[0] }));
       alert("Thêm thành công ");
       navigate("/admin/products");
     }

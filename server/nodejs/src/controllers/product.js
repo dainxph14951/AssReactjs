@@ -3,11 +3,12 @@ import slugify from 'slugify';
 
 export const creatProduct = async (req, res) => {
   req.body.slug = slugify(req.body.name);
-  console.log(req.body);
+  console.log(req.body)
   try {
     const product = await new Product(req.body).save()
     res.json(product);
     console.log(product);
+
   } catch (error) {
     res.status(400).json({
       message: "Thêm sản phẩm không thành công"
