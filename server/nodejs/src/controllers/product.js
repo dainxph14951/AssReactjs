@@ -83,6 +83,7 @@ export const get = async (req, res) => {
 export const remove = async (req, res) => {
   try {
     const products = await Product.findOneAndDelete({
+      _id: req.params.id
     }).exec();
     res.json(products);
   } catch (error) {

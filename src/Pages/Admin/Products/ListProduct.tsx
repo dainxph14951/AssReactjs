@@ -24,8 +24,12 @@ const ListProduct = () => {
     }, [])
 
     const removeItem = (id: any) => {
-        confirm("Bạn có muốn xoá không ?");
-        dispatch(deleteProduct(id))
+        const confirm = window.confirm("bạn có muốn xóa không ")
+        if(confirm){
+            console.log(id)
+            dispatch(deleteProduct(id))
+        }
+     
     }
     return (
         <div className="w-full overflow-hidden rounded-lg shadow-xs">
@@ -73,7 +77,7 @@ const ListProduct = () => {
                                             <Link to={`/admin/products/${item._id}/edit`} className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">Update</Link>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <button onClick={() => { removeItem(item._id) }} className="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">remove</button>
+                                            <button onClick={() => {removeItem(item._id) }} className="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">remove</button>
                                         </td>
                                     </td>
                                 </tr>

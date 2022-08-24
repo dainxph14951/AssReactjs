@@ -204,7 +204,6 @@ const Products = () => {
                                 <img src={item.img} alt="Front of men&#039;s Basic Tee in black." className="w-20 h-20  lg:w-full lg:h-full" />
                               </div>
                               <div className="mt-4 flex justify-between no-underline">
-
                                 <div>
                                   <h3 className="text-sm text-gray-700 no-underline">
                                     <a className='no-underline' >{item.name}</a>

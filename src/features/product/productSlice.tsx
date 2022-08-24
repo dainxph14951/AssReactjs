@@ -18,7 +18,7 @@ export const addsProduct = createAsyncThunk(
 );
 
 export const deleteProduct = createAsyncThunk(
-  'products/deleteProduct', async (params: ProductType) => {
+  'products/deleteProduct', async (params: any) => {
     const { data } = await removeProduct(params);
     return data;
   }
