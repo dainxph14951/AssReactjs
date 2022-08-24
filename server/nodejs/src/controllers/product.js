@@ -16,7 +16,8 @@ export const creatProduct = async (req, res) => {
 }
 
 export const list = async (req, res) => {
-  let { name, page, _limit } = req.query                                                                          
+  let { name, page, _limit } = req.query    
+  if (name || (page && _limit)) {                                                                              
     if (name) {
       try {
         const products = await Product.find({ name: new RegExp(name, 'i') }).exec();
